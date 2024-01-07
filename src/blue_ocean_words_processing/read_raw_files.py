@@ -1,20 +1,23 @@
+import csv
+import logging
 import os
 
-import pandas as pd
+from tqdm import tqdm
 
 from blue_ocean_words_processing.config import BlueOceanWordQueryConfig
 
+logger = logging.getLogger(__name__)
+
 
 def read_raw_files():
-    data = None
-    for filename in os.listdir(BlueOceanWordQueryConfig.RAW_DATA_FOLDER):
+    logger.info('Reading raw data files...')
+    data = list()
+    for filename in tqdm(os.listdir(BlueOceanWordQueryConfig.RAW_DATA_FOLDER), desc='Reading raw data files...'):
         if filename.endswith('csv'):
-            if data is not None:
-                data._append(pd.read_csv(os.path.join(BlueOceanWordQueryConfig.RAW_DATA_FOLDER, filename),
-                                         encoding='utf-8'))
-            else:
-                data = pd.read_csv(os.path.join(BlueOceanWordQueryConfig.RAW_DATA_FOLDER, filename),
-                                   encoding='utf-8')
+            with open(os.path.join(BlueOceanWordQueryConfig.RAW_DATA_FOLDER, filename), 'r', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                data.extend(list(reader)[1:])
+    logger.info('Finished reading raw data files.')
     return data
 
 
