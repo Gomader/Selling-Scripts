@@ -40,8 +40,7 @@ def get_related_words(word_root):
         time.sleep(5)
         os.rename(os.path.join(Config.DOWNLOAD_DIR, '生意参谋查词 市场行情查词 在线查词 生意参谋 查词 标题权重 做标题.csv'),
                   os.path.join(Config.DOWNLOAD_DIR, f'{word}.csv'))
-        shutil.move(os.path.join(Config.DOWNLOAD_DIR, f'{word}.csv'),
-                    os.path.join(Config.BLUE_OCEAN_WORDS_PROCESSING_FOLDER, 'raw_data'))
+        shutil.move(os.path.join(Config.DOWNLOAD_DIR, f'{word}.csv'), BlueOceanWordQueryConfig.RAW_DATA_FOLDER)
 
 
 def run():
