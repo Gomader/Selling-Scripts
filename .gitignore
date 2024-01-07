@@ -11,3 +11,4 @@ test/*
 
 # Processing files
 *.csv
+output.xlsx
