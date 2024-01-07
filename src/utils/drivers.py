@@ -1,6 +1,8 @@
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
+from config.config import Config
+
 
 def get_chrome_window():
     chrome_options = Options()
@@ -17,7 +19,7 @@ def get_chrome_window():
     return browser
 
 
-def get_window(driver):
+def get_window():
     return {
         "CHROME": get_chrome_window
-    }[driver]()
+    }[Config.DRIVER]()
