@@ -1,7 +1,7 @@
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
-from config.config import Config
+from configs.config import Config
 
 
 def get_chrome_window():
@@ -12,7 +12,10 @@ def get_chrome_window():
     chrome_options.add_argument('--headless')
     chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
 
-    browser = webdriver.Chrome(options=chrome_options)
+    if Config.DEBUG:
+        browser = webdriver.Chrome()
+    else:
+        browser = webdriver.Chrome(options=chrome_options)
 
     browser.maximize_window()
 
