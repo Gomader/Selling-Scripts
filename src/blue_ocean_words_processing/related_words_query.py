@@ -7,7 +7,7 @@ from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from tqdm import tqdm
 
-from blue_ocean_words_processing.blueoceanwordqueryconfig import BlueOceanWordQueryConfig
+from blue_ocean_words_processing.config import BlueOceanWordQueryConfig
 from configs.config import Config
 from configs.urls import MYSYCM
 from login.mysycm import login_mysycm
