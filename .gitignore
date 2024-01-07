@@ -1,0 +1,10 @@
+# django and python
+__pycache__
+
+# Editor directories and files
+.vscode/*
+.idea
+.DS_Store
+
+# Test dir
+test/*
